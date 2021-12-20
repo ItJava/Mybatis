@@ -11,15 +11,18 @@
 
     public Employee getEmpById(Integer id);
      -->
+
     <select id="getEmpById" resultType="com.deling.mybatis.hello.bean.Employee">
-        select id,last_name lastName,email,gender from tbl_employee where id = #{id}
+        select * from tbl_employee where id = #{id}
+        <!-- select id,last_name lastName,email,gender from tbl_employee where id = #{id} -->
     </select>
 
-<!--
-    <select id="selectEmpById" resultType="com.deling.mybatis.hello.bean.Employee">
-        select id,last_name lastName,email,gender from tbl_employee where id = #{id}
-    </select>
--->
+
+    <!--
+        <select id="selectEmpById" resultType="com.deling.mybatis.hello.bean.Employee">
+            select id,last_name lastName,email,gender from tbl_employee where id = #{id}
+        </select>
+    -->
 
 
 </mapper>

@@ -6,9 +6,11 @@
 
 
 
- 	<properties resource="dbconfig.properties">
-
-	</properties>
+ 	<properties resource="dbconfig.properties"/>
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING" />             <!-- 配置mybatis sql 日志打印输出  -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>      <!-- 是否开启驼峰命名自动映射 -->
+	</settings>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
