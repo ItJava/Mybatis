@@ -11,6 +11,28 @@
 		<setting name="logImpl" value="STDOUT_LOGGING" />             <!-- 配置mybatis sql 日志打印输出  -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>      <!-- 是否开启驼峰命名自动映射 -->
 	</settings>
+
+
+	<typeAliases>
+		<!-- typeAliases
+             - 类型别名可为 Java 类型设置一个缩写名字。 它仅用于 XML 配置，意在降低冗余的全限定类名书写。
+		     - 也可以指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean.
+		     - 注意，别名不区分大小写
+		     - 包名批量别名弊端：子package 下面也可能有同类名的类，造成别名冲突。 解决方案 注解其中的别名另外一个别名：@Alias("**")
+		-->
+<!--		<typeAlias alias="Employee" type="com.deling.mybatis.hello.bean.Employee"/>-->
+		<package name="com.deling.mybatis.hello.bean"/>
+	</typeAliases>
+
+	<!--
+    environments:环境们  mybatis 可以配置多种环境，default 指定使用某种环境，可以达到快速切换
+      environment:配置一个具体的环境信息，必须有两个标签，id 代表当前环境的唯一标识
+      transactionManager:事务管理器
+      dataSource:数据源
+
+    -->
+
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
