@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.deling.mybatis.hello.bean.Employee;
-import com.deling.mybatis.mapper.EmployeeMapper;
+import com.deling.mybatis.mapper.dao.EmployeeMapper;
+import com.deling.mybatis.mapper.dao.EmployeeMapperAnation;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -90,5 +91,25 @@ public class MyBatisTest {
 		}
 
 	}
+
+	@Test
+	public void test02() throws IOException {
+		// 1、获取sqlSessionFactory对象
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		// 2、获取sqlSession对象
+		SqlSession openSession = sqlSessionFactory.openSession();
+		try {
+			// 3、获取接口的实现类对象
+			//会为接口自动的创建一个代理对象，代理对象去执行增删改查方法
+			EmployeeMapperAnation mapper = openSession.getMapper(EmployeeMapperAnation.class);
+			Employee employee = mapper.getEmpById(1);
+			System.out.println(mapper.getClass());
+			System.out.println(employee);
+		} finally {
+			openSession.close();
+		}
+
+	}
+
 
 }

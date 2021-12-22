@@ -1,4 +1,4 @@
-package com.deling.mybatis.mapper;
+package com.deling.mybatis.mapper.dao;
 
 import com.deling.mybatis.hello.bean.Employee;
 

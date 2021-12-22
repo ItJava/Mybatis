@@ -29,9 +29,16 @@
       environment:配置一个具体的环境信息，必须有两个标签，id 代表当前环境的唯一标识
       transactionManager:事务管理器
       dataSource:数据源
-
     -->
-
+	<!--
+	daabaseIdResourceIdProvider,支持多数据库厂商的，
+	    数据库厂商标识（databaseIdProvider）
+	-->
+<!--	<databaseIdProvider type="DB_VENDOR">
+		<property name="SQL Server" value="sqlserver"/>
+		<property name="DB2" value="db2"/>
+		<property name="Oracle" value="oracle" />
+	</databaseIdProvider>-->
 
 	<environments default="development">
 		<environment id="development">
@@ -47,6 +54,17 @@
 
 	<mappers>
 		<!-- 注册 xml -->
+		<!-- mappers，将sql 映射注册到全局配置中
+		      resource:引用类路径下的sql映射文件
+		               如果再resources 路径下可以创建包名，那么就*/*/*.xml  这样配置
+		      url:引用网络路径或者侧畔路径下的sql文件
+		           file://*/*/*.xml
+              注册接口：
+               class:引用注册接口
+                      1、有sql 注册文件，映射文件名必须和接口同名，并且放在接口同一目录下。
+                      2、没有sql映射文件，所有的sql都是利用注解写在接口上
+		-->
 		<mapper resource="EmployeeMapper.xml"/>
+		<mapper class="com.deling.mybatis.mapper.dao.EmployeeMapperAnation"/>
 	</mappers>
 </configuration>
