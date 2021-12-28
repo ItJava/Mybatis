@@ -16,13 +16,17 @@
         select * from tbl_employee where id = #{id}
         <!-- select id,last_name lastName,email,gender from tbl_employee where id = #{id} -->
     </select>
-
-
     <!--
-        <select id="selectEmpById" resultType="com.deling.mybatis.hello.bean.Employee">
-            select id,last_name lastName,email,gender from tbl_employee where id = #{id}
-        </select>
+    Employee getEmpById(int id);
+       void addEmp(Employee employee);
+       void updateEmp(Employee employee);
+       void deleteEmpById(Integer id);
     -->
+    <insert id="addEmp"  parameterType="com.deling.mybatis.hello.bean.Employee">
+
+    </insert>
+
+
 
 
 </mapper>
